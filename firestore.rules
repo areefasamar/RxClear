@@ -1,0 +1,19 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Default deny
+    match /{document=**} {
+      allow read, write: if false;
+    }
+    
+    // Prescriptions collection
+    match /prescriptions/{prescriptionId} {
+      // Allow create if the user is authenticated and is setting their own userId
+      allow create: if request.auth != null && request.resource.data.userId == request.auth.uid;
+      
+      // Allow read/update/delete if the user is authenticated and the document belongs to them
+      allow read, update, delete: if request.auth != null && resource.data.userId == request.auth.uid;
+    }
+  }
+}
