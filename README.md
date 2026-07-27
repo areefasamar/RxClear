@@ -6,7 +6,7 @@
 
 **Who it's for:** patients and caregivers who want to double-check and understand a prescription in plain language before taking it to the pharmacy — without needing to wait for a phone call back from the doctor or make an extra trip just to ask "what does this say?"
 
-**Core design decision:** rather than pretending to confidently decode every prescription (which risks dangerous misinformation on illegible handwriting), RxClear's AI explicitly rates its own confidence per medicine — **High / Medium / Low** — and tells the user honestly when something needs pharmacist confirmation instead of guessing. This is the single most important design choice in the app: it's built to be a responsible reading aid, not a false authority.
+**Core design decision:** rather than pretending to confidently decode every prescription (which risks dangerous misinformation on illegible handwriting), RxClear's AI explicitly rates its own confidence per medicine — **High Confidence / Needs Confirmation / Unclear — Action Required** — and tells the user honestly when something needs pharmacist confirmation instead of guessing. This is the single most important design choice in the app: it's built to be a responsible reading aid, not a false authority. In the example shown in the screenshots below, the app correctly flagged "Cap. Rlij 2g" as unclear rather than guessing at a specific drug name, and prompted the user to confirm it with their pharmacist.
 
 > ⚠️ **RxClear is a reading-assistance tool, not a medical diagnosis tool.** It does not replace professional advice — always confirm with a doctor or pharmacist before taking any medication.
 
@@ -14,27 +14,27 @@
 
 ## b. Live URL
 
-**🔗 [[RxClear](https://rx-clear-liard.vercel.app/)]**
-
-
+**🔗 [https://rx-clear-liard.vercel.app/](https://rx-clear-liard.vercel.app/)**
 
 ---
 
 ## c. Features
 
-- 📸 **Upload or capture a prescription photo** directly from a device camera or file picker
+- 📸 **Upload or capture a prescription photo** directly from a device camera or file picker (JPEG/PNG up to 10MB)
 - 🖼️ **Image preview** before submitting, with a "Retake Photo" option
 - 🤖 **AI-powered decoding** — reads the prescription and returns a structured, plain-language explanation
 - 💊 **Per-medicine breakdown**, including:
   - Medicine name (as read)
   - Purpose / what it treats, explained in plain language
   - Dosage & frequency
-  - Duration of treatment (if stated)
+  - Duration of treatment
   - Common side effects
-  - **Confidence rating** (High / Medium / Low) with a clear note when something is unclear
-- 🗓️ **Auto-generated daily schedule** — a simple Morning / Afternoon / Evening / Night table showing when to take each medicine
+  - **Confidence rating** — "High Confidence," "Needs Confirmation," or "Unclear — Action Required," with a clear explanatory note when something is uncertain
+- 🗓️ **Auto-generated daily schedule** — a Morning / Afternoon / Evening / Night table showing exactly when to take each medicine
 - 🔒 **Private, anonymous history** — every user gets a silent, invisible anonymous session (no login, no signup, no personal information collected) so their past scans stay private to them and are never mixed with anyone else's
 - 📋 **History screen** — revisit past decoded prescriptions
+- 📄 **Save Result as PDF** — download the decoded results for offline reference or to show a pharmacist
+- 🔗 **Share Results** — quickly share the decoded prescription summary
 - ⚠️ **Persistent safety disclaimer** shown on every screen
 - 🛡️ **Graceful error handling** — unreadable images, AI service hiccups, and rate limits all show honest, calm messages instead of crashing or displaying raw errors
 - 📱 **Fully responsive** — works on both desktop and mobile browsers
@@ -43,7 +43,7 @@
 
 ## d. The AI feature
 
-**What it does:** The core AI feature reads an uploaded prescription image using a vision-capable large language model and returns a structured, honest explanation — including an explicit confidence rating per medicine, so the user always knows what to trust and what to double-check.
+**What it does:** The core AI feature reads an uploaded prescription image using a vision-capable large language model and returns a structured, honest explanation — including an explicit confidence rating per medicine, so the user always knows what to trust and what to double-check with a pharmacist.
 
 **The exact system prompt used:**
 
@@ -108,7 +108,7 @@ If the image is not readable as a prescription at all, return instead:
 }
 ```
 
-**Why this matters:** the confidence-flagging behavior is intentional and is the core "instructions I wrote myself" piece of this project — it directly shapes the model into refusing to hallucinate a drug name when handwriting is genuinely illegible, instead surfacing uncertainty honestly to the user. This was iteratively tested and tuned against real prescription photos with varying handwriting quality.
+**Why this matters:** the confidence-flagging behavior is intentional and is the core "instructions I wrote myself" piece of this project — it directly shapes the model into refusing to hallucinate a drug name when handwriting is genuinely illegible, instead surfacing uncertainty honestly to the user, and even providing a "Confirm Medicine Name" call-to-action for the pharmacist visit. This was iteratively tested and tuned against real prescription photos with varying handwriting quality.
 
 ---
 
@@ -117,7 +117,7 @@ If the image is not readable as a prescription at all, return instead:
 | Category | Tool/Service |
 |---|---|
 | Frontend & Backend | Next.js (App Router), React, TypeScript, Tailwind CSS |
-| AI Model | **[CONFIRM: Google Gemini (2.5 Flash-Lite) or Groq (Llama vision model) — whichever you ended up shipping with]**, called server-side via a dedicated API route |
+| AI Model | Google Gemini (vision-capable model), called server-side via a dedicated API route |
 | Database | Firebase Firestore (private, per-user history via Firebase Anonymous Authentication) |
 | UI Design | Google Stitch (initial screen designs and component styling) |
 | Development / Build Assistance | Antigravity and Cursor (AI coding agents used to implement the functional app on top of the designed UI) |
@@ -128,16 +128,26 @@ If the image is not readable as a prescription at all, return instead:
 
 ## f. Screenshots
 
-*(Insert at least 3 screenshots here — recommended: Upload screen, Results screen showing a mix of High/Medium/Low confidence medicines, and the History screen. Use real output from your deployed app, not mockups.)*
+**Home screen**
+![Home screen](screenshots/Dashboard1.png)
 
-1. **Upload screen**
-   `![Upload screen](screenshots/upload.png)`
+**Upload area**
+![Upload area](screenshots/Dashboard2.png)
 
-2. **Results screen**
-   `![Results screen](screenshots/results.png)`
+**Feature highlights**
+![Feature highlights](screenshots/Dashboard3.png)
 
-3. **History screen**
-   `![History screen](screenshots/history.png)`
+**Decoded results — High Confidence & Needs Confirmation**
+![Decoded results](screenshots/Result1.png)
+
+**Decoded results — Unclear medicine flagged for pharmacist confirmation**
+![Unclear medicine flagged](screenshots/Result2.png)
+
+**Daily schedule & export options**
+![Daily schedule](screenshots/Result3.png)
+
+**History screen**
+![History screen](screenshots/History.png)
 
 ---
 
@@ -145,15 +155,15 @@ If the image is not readable as a prescription at all, return instead:
 
 ### Prerequisites
 - Node.js (v18 or later)
-- A free API key from your chosen AI provider (Google AI Studio or Groq Console)
+- A free Gemini API key (Google AI Studio)
 - A free Firebase project with Firestore enabled and Anonymous Authentication enabled
 
 ### Setup steps
 
 ```bash
 # 1. Clone the repository
-git clone <your-repo-url>
-cd rxclear
+git clone https://github.com/areefasamar/RxClear.git
+cd RxClear
 
 # 2. Install dependencies
 npm install
