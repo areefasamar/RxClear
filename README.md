@@ -14,9 +14,9 @@
 
 ## b. Live URL
 
-**🔗 [PASTE YOUR DEPLOYED VERCEL URL HERE]**
+**🔗 [[RxClear](https://rx-clear-liard.vercel.app/)]**
 
-*(Test this link yourself in an incognito window before submitting — it must load and work with no login required.)*
+
 
 ---
 
