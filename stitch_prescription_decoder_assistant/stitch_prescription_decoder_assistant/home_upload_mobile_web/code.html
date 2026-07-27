@@ -1,0 +1,262 @@
+<!DOCTYPE html><html class="light" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title class="">RxClear | Understand Your Rx</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "outline-variant": "#bfc8cd",
+                        "surface-container-high": "#e6e8ea",
+                        "on-tertiary": "#ffffff",
+                        "surface": "#f7f9fb",
+                        "on-secondary-container": "#5c647a",
+                        "outline": "#6f787d",
+                        "on-secondary": "#ffffff",
+                        "on-background": "#191c1e",
+                        "on-secondary-fixed-variant": "#3f465c",
+                        "on-tertiary-fixed-variant": "#6c3a05",
+                        "on-primary-fixed-variant": "#004e60",
+                        "on-error": "#ffffff",
+                        "inverse-primary": "#87d1ec",
+                        "tertiary-fixed-dim": "#ffb77c",
+                        "primary-fixed": "#b7eaff",
+                        "surface-container-highest": "#e0e3e5",
+                        "on-tertiary-fixed": "#2e1500",
+                        "surface-container": "#eceef0",
+                        "secondary": "#565e74",
+                        "surface-bright": "#f7f9fb",
+                        "on-primary-fixed": "#001f28",
+                        "secondary-container": "#dae2fd",
+                        "inverse-on-surface": "#eff1f3",
+                        "primary-fixed-dim": "#87d1ec",
+                        "primary": "#02677f",
+                        "on-primary-container": "#005468",
+                        "surface-container-low": "#f2f4f6",
+                        "tertiary-fixed": "#ffdcc2",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-container": "#73400b",
+                        "inverse-surface": "#2d3133",
+                        "primary-container": "#7ec8e3",
+                        "surface-tint": "#02677f",
+                        "on-surface": "#191c1e",
+                        "background": "#f7f9fb",
+                        "on-secondary-fixed": "#131b2e",
+                        "tertiary": "#89511c",
+                        "on-surface-variant": "#3f484c",
+                        "tertiary-container": "#f7ae71",
+                        "error": "#ba1a1a",
+                        "on-error-container": "#93000a",
+                        "secondary-fixed-dim": "#bec6e0",
+                        "secondary-fixed": "#dae2fd",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-dim": "#d8dadc",
+                        "surface-variant": "#e0e3e5",
+                        "error-container": "#ffdad6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-md": "16px",
+                        "container-padding": "24px",
+                        "stack-lg": "32px",
+                        "grid-gutter": "32px",
+                        "stack-sm": "8px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Plus Jakarta Sans"],
+                        "label-sm": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "body-md": ["Inter"],
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "label-md": ["Inter"],
+                        "headline-lg-mobile": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-sm": ["12px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-lg": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "label-md": ["14px", {"lineHeight": "1.4", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "1.3", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: #F8FAFC; /* Brand Surface 0 */
+            color: #191c1e;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        .surface-1 {
+            background-color: #FFFFFF;
+            box-shadow: 0px 4px 20px rgba(15, 23, 42, 0.05);
+            border-radius: 20px;
+        }
+
+        .primary-button {
+            background-color: #7EC8E3;
+            color: white;
+            border-radius: 16px;
+            transition: transform 100ms ease;
+        }
+        
+        .primary-button:active {
+            transform: scale(0.98);
+        }
+
+        .upload-dashed {
+            border: 2px dashed #E2E8F0;
+            transition: border-color 200ms ease, background-color 200ms ease;
+        }
+
+        .upload-dashed:active {
+            border-color: #7EC8E3;
+            background-color: rgba(126, 200, 227, 0.05);
+        }
+
+        .nav-active {
+            border-bottom: 2px solid #02677f;
+            font-weight: 700;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col font-body-md text-body-md">
+<!-- TopNavBar -->
+<nav class="fixed top-0 left-0 w-full z-50 bg-surface-container-lowest border-b border-outline-variant shadow-sm">
+<div class="flex justify-between items-center h-16 px-container-padding max-w-[1000px] mx-auto w-full">
+<div class="flex items-center gap-2 font-headline-md text-headline-md font-bold text-primary">
+  <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOBeCDXR8PpXWU9HDmSq-02tJOG3BJvQi4zw49X7IvDdo11FSed6TSrPCEMfXHj90wOg3fk7bdW0FtrtCM8gIRoIgTgfmis0I2doZN6au7ls3Pm2BLgYbH4OyhM1k9LTAYohYJ13QhvsdInkJoaYJlzZ-TfKyhzXk3wDSRfIfwS_ps5ruZ63D-22i85bXTi5GFK7cqvXn6LrZGOWJ7Cwq214sjT5UIygqiIVpwYs5QrNzpoRHNt1Q08U5I5ICbw5BiVhZzpVs7ZWM" alt="RxClear Capsule Logo" class="h-8 w-auto">
+  <span class="">RxClear</span>
+</div>
+<div class="flex items-center gap-6">
+<a class="font-label-md text-label-md text-primary font-bold border-b-2 border-primary pb-1" href="#">Home</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">History</a>
+</div>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="flex-grow pt-24 pb-32 max-w-[1000px] mx-auto px-container-padding w-full">
+<!-- Hero Section -->
+<section class="flex flex-col items-center text-center mb-stack-lg">
+<div class="w-full max-w-[340px] mb-stack-md transition-all duration-700 ease-out transform translate-y-0 opacity-100" id="hero-image">
+<img alt="Friendly Medical Illustration" class="w-full h-auto" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQ2D1RGfbXbLFoUDom6hxu9piwjT2eRokDVqWJy8yLyW4ievGbysjjaUel6jhhTXvUcJ2UuMo64mdsP5qrFGf7sArswqItnJPFKfakjz6DHzo2S0ce3ktin2wILIMKSiS6A5GbEZP_aVyxJ0WqKVyto1k9dMZOvjgHgUbVljSluCNzPPC3WejVI2-BUJJvaoD0PUfxnwLV5GlcBDoLq8xw6lCX6tqmhqfcGM1c_A_z1XvpyDTaDzHv-rYC0jhruLIggskdDHecQVY">
+</div>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile mb-stack-sm text-on-background tracking-tight">
+                Understand your prescription in seconds
+            </h1>
+<p class="text-on-surface-variant font-body-md text-body-md max-w-[320px] mx-auto leading-relaxed">
+                Upload a photo of your medical script to decode complex instructions instantly.
+            </p>
+</section>
+<!-- Primary Action: Upload Area -->
+<section class="mb-stack-lg">
+<div class="surface-1 p-stack-md flex flex-col items-center">
+<div class="upload-dashed w-full rounded-xl py-12 flex flex-col items-center justify-center cursor-pointer" id="upload-trigger">
+<div class="mb-4 bg-primary-container/20 p-4 rounded-full">
+<span class="material-symbols-outlined text-primary text-4xl">add_a_photo</span>
+</div>
+<p class="font-headline-md text-headline-md text-on-background mb-1">Capture Script</p>
+<p class="text-on-surface-variant font-label-md text-label-md mb-6">JPEG, PNG, or PDF up to 10MB</p>
+<button class="primary-button px-8 py-4 font-label-md text-label-md flex items-center gap-2 shadow-md">
+<span class="material-symbols-outlined text-sm">upload</span>
+                        Upload or Take a Photo
+                    </button>
+<input accept="image/*" capture="environment" class="hidden" id="file-input" type="file">
+</div>
+</div>
+</section>
+<!-- Bento Grid: Quick Tips/Features (Mobile Optimized) -->
+<section class="grid grid-cols-1 gap-stack-md">
+<!-- Tip Card 1 -->
+<div class="surface-1 p-stack-md flex items-start gap-4">
+<div class="bg-secondary-container rounded-lg p-2 flex-shrink-0">
+<span class="material-symbols-outlined text-on-secondary-container">verified_user</span>
+</div>
+<div>
+<h3 class="font-label-md text-label-md text-on-background font-bold mb-1">Privacy First</h3>
+<p class="text-on-surface-variant text-sm leading-snug">Your data is encrypted and never shared. We prioritize your medical confidentiality.</p>
+</div>
+</div>
+<!-- Tip Card 2 -->
+<div class="surface-1 p-stack-md flex items-start gap-4">
+<div class="bg-tertiary-container/30 rounded-lg p-2 flex-shrink-0">
+<span class="material-symbols-outlined text-tertiary">emergency</span>
+</div>
+<div>
+<h3 class="font-label-md text-label-md text-on-background font-bold mb-1">Dosage Alerts</h3>
+<p class="text-on-surface-variant text-sm leading-snug">AI identifies dosage instructions and frequency to help you manage your meds correctly.</p>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer / Disclaimer Bar -->
+<footer class="fixed bottom-0 left-0 w-full z-50 bg-error-container text-on-error-container py-stack-md px-container-padding text-center shadow-lg">
+<div class="max-w-[1000px] mx-auto flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">info</span>
+<p class="font-label-md text-label-md leading-tight">
+                This tool assists reading — always confirm with your pharmacist or doctor.
+            </p>
+</div>
+</footer>
+<script>
+        // Micro-interactions for the upload area
+        const uploadTrigger = document.getElementById('upload-trigger');
+        const fileInput = document.getElementById('file-input');
+
+        uploadTrigger.addEventListener('click', () => {
+            fileInput.click();
+        });
+
+        fileInput.addEventListener('change', (e) => {
+            if (e.target.files.length > 0) {
+                const fileName = e.target.files[0].name;
+                // Basic visual feedback for mobile
+                uploadTrigger.querySelector('p.text-on-background').innerText = 'File Selected';
+                uploadTrigger.querySelector('p.text-on-surface-variant').innerText = fileName;
+                uploadTrigger.style.borderColor = '#02677f';
+                uploadTrigger.style.backgroundColor = '#f2f4f6';
+                
+                // Simulate processing
+                setTimeout(() => {
+                    alert('Ready to decode: ' + fileName);
+                }, 500);
+            }
+        });
+
+        // Simple entrance animation for the hero image
+        window.addEventListener('DOMContentLoaded', () => {
+            const heroImg = document.getElementById('hero-image');
+            heroImg.style.opacity = '0';
+            heroImg.style.transform = 'translateY(20px)';
+            
+            setTimeout(() => {
+                heroImg.style.transition = 'all 1s ease-out';
+                heroImg.style.opacity = '1';
+                heroImg.style.transform = 'translateY(0)';
+            }, 100);
+        });
+    </script>
+
+
+</body></html>

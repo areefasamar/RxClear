@@ -1,0 +1,281 @@
+<!DOCTYPE html><html class="light" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Prescription Decoder - Results</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Inter:wght@400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Plus+Jakarta+Sans:wght@100..900&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "outline-variant": "#bfc8cd",
+                    "surface-container-high": "#e6e8ea",
+                    "on-tertiary": "#ffffff",
+                    "surface": "#f7f9fb",
+                    "on-secondary-container": "#5c647a",
+                    "outline": "#6f787d",
+                    "on-secondary": "#ffffff",
+                    "on-background": "#191c1e",
+                    "on-secondary-fixed-variant": "#3f465c",
+                    "on-tertiary-fixed-variant": "#6c3a05",
+                    "on-primary-fixed-variant": "#004e60",
+                    "on-error": "#ffffff",
+                    "inverse-primary": "#87d1ec",
+                    "tertiary-fixed-dim": "#ffb77c",
+                    "primary-fixed": "#b7eaff",
+                    "surface-container-highest": "#e0e3e5",
+                    "on-tertiary-fixed": "#2e1500",
+                    "surface-container": "#eceef0",
+                    "secondary": "#565e74",
+                    "surface-bright": "#f7f9fb",
+                    "on-primary-fixed": "#001f28",
+                    "secondary-container": "#dae2fd",
+                    "inverse-on-surface": "#eff1f3",
+                    "primary-fixed-dim": "#87d1ec",
+                    "primary": "#02677f",
+                    "on-primary-container": "#005468",
+                    "surface-container-low": "#f2f4f6",
+                    "tertiary-fixed": "#ffdcc2",
+                    "on-primary": "#ffffff",
+                    "on-tertiary-container": "#73400b",
+                    "inverse-surface": "#2d3133",
+                    "primary-container": "#7ec8e3",
+                    "surface-tint": "#02677f",
+                    "on-surface": "#191c1e",
+                    "background": "#f7f9fb",
+                    "on-secondary-fixed": "#131b2e",
+                    "tertiary": "#89511c",
+                    "on-surface-variant": "#3f484c",
+                    "tertiary-container": "#f7ae71",
+                    "error": "#ba1a1a",
+                    "on-error-container": "#93000a",
+                    "secondary-fixed-dim": "#bec6e0",
+                    "secondary-fixed": "#dae2fd",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-dim": "#d8dadc",
+                    "surface-variant": "#e0e3e5",
+                    "error-container": "#ffdad6"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-md": "16px",
+                    "container-padding": "24px",
+                    "stack-lg": "32px",
+                    "grid-gutter": "32px",
+                    "stack-sm": "8px"
+            },
+            "fontFamily": {
+                    "display-lg": ["Plus Jakarta Sans"],
+                    "label-sm": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "body-md": ["Inter"],
+                    "headline-lg": ["Plus Jakarta Sans"],
+                    "label-md": ["Inter"],
+                    "headline-lg-mobile": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "display-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-sm": ["12px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "label-md": ["14px", {"lineHeight": "1.4", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "1.3", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .custom-card-shadow {
+        box-shadow: 0px 4px 20px rgba(15, 23, 42, 0.05);
+      }
+      .active-nav-link {
+        border-bottom-width: 2px;
+        padding-bottom: 4px;
+      }
+      /* Custom interaction for cards */
+      .med-card:active {
+        transform: scale(0.98);
+        transition: transform 0.1s ease-in-out;
+      }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body-md min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<header class="bg-surface-container-lowest dark:bg-inverse-surface border-b border-outline-variant dark:border-outline shadow-sm sticky top-0 z-40">
+<nav class="flex justify-between items-center h-16 px-container-padding max-w-[1000px] mx-auto w-full"><div class="flex items-center gap-2">
+  <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOBeCDXR8PpXWU9HDmSq-02tJOG3BJvQi4zw49X7IvDdo11FSed6TSrPCEMfXHj90wOg3fk7bdW0FtrtCM8gIRoIgTgfmis0I2doZN6au7ls3Pm2BLgYbH4OyhM1k9LTAYohYJ13QhvsdInkJoaYJlzZ-TfKyhzXk3wDSRfIfwS_ps5ruZ63D-22i85bXTi5GFK7cqvXn6LrZGOWJ7Cwq214sjT5UIygqiIVpwYs5QrNzpoRHNt1Q08U5I5ICbw5BiVhZzpVs7ZWM" alt="RxClear Logo" class="h-8 w-auto">
+  <span class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim">RxClear</span>
+</div>
+<div class="flex gap-stack-md">
+  <a class="font-label-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors scale-95 duration-100" href="#">Home</a>
+  <a class="font-label-md text-label-md text-primary dark:text-primary-fixed-dim font-bold border-b-2 border-primary dark:border-primary-fixed-dim pb-1" href="#">History</a>
+</div></nav>
+</header>
+<main class="flex-grow w-full max-w-[1000px] mx-auto px-container-padding pt-stack-lg pb-32">
+<!-- Summary Header -->
+<section class="mb-stack-lg animate-in fade-in slide-in-from-top-4 duration-500">
+<div class="bg-primary-container/20 p-stack-md rounded-[20px] border border-primary-container/30 flex items-center gap-stack-md">
+<div class="bg-primary-container text-on-primary-container p-2 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">task_alt</span>
+</div>
+<div>
+<h1 class="font-headline-md text-headline-md text-primary">Decoded Successfully</h1>
+<p class="font-body-md text-on-surface-variant">3 medicines identified, 1 needs confirmation</p>
+</div>
+</div>
+</section>
+<!-- Medicine List (Mobile Stack) -->
+<section class="flex flex-col gap-stack-md mb-stack-lg">
+<!-- Med Card 1 -->
+<div class="med-card bg-surface-container-lowest p-stack-md rounded-[20px] custom-card-shadow border border-outline-variant/30 flex flex-col gap-stack-sm">
+<div class="flex justify-between items-start">
+<h2 class="font-headline-md text-headline-md text-on-surface">Amoxicillin</h2>
+<span class="bg-primary-container/15 text-primary text-label-sm font-label-sm px-3 py-1 rounded-full flex items-center gap-1">
+                        98% Confident
+                    </span>
+</div>
+<p class="text-on-surface-variant font-body-md">Antibiotic used to treat bacterial infections.</p>
+<div class="grid grid-cols-2 gap-stack-md mt-2 pt-2 border-t border-outline-variant/20">
+<div>
+<span class="text-label-sm font-label-sm text-outline uppercase tracking-wider">Dosage</span>
+<p class="text-on-surface font-body-md font-medium">500 mg</p>
+</div>
+<div>
+<span class="text-label-sm font-label-sm text-outline uppercase tracking-wider">Duration</span>
+<p class="text-on-surface font-body-md font-medium">7 Days</p>
+</div>
+</div>
+</div>
+<!-- Med Card 2 (Needs Confirmation) -->
+<div class="med-card bg-surface-container-lowest p-stack-md rounded-[20px] custom-card-shadow border-2 border-tertiary-container/50 flex flex-col gap-stack-sm relative overflow-hidden">
+<div class="absolute top-0 right-0 bg-tertiary-container px-4 py-1 rounded-bl-xl">
+<span class="text-label-sm font-label-sm text-on-tertiary-container">Action Required</span>
+</div>
+<div class="flex justify-between items-start mt-2">
+<h2 class="font-headline-md text-headline-md text-on-surface">Lisinopril</h2>
+<span class="bg-tertiary-container/20 text-tertiary text-label-sm font-label-sm px-3 py-1 rounded-full">
+                        65% Confident
+                    </span>
+</div>
+<p class="text-on-surface-variant font-body-md italic text-sm">System suggests ACE inhibitor for blood pressure. Please confirm with physical box.</p>
+<div class="grid grid-cols-2 gap-stack-md mt-2 pt-2 border-t border-outline-variant/20">
+<div>
+<span class="text-label-sm font-label-sm text-outline uppercase tracking-wider">Dosage</span>
+<p class="text-on-surface font-body-md font-medium">10 mg</p>
+</div>
+<div>
+<span class="text-label-sm font-label-sm text-outline uppercase tracking-wider">Duration</span>
+<p class="text-on-surface font-body-md font-medium">Daily (Ongoing)</p>
+</div>
+</div>
+<button class="mt-2 w-full py-2 bg-tertiary-container text-on-tertiary-container rounded-[16px] font-label-md hover:opacity-90 transition-opacity">
+                    Confirm Medicine Name
+                </button>
+</div>
+<!-- Med Card 3 -->
+<div class="med-card bg-surface-container-lowest p-stack-md rounded-[20px] custom-card-shadow border border-outline-variant/30 flex flex-col gap-stack-sm">
+<div class="flex justify-between items-start">
+<h2 class="font-headline-md text-headline-md text-on-surface">Ibuprofen</h2>
+<span class="bg-primary-container/15 text-primary text-label-sm font-label-sm px-3 py-1 rounded-full">
+                        100% Confident
+                    </span>
+</div>
+<p class="text-on-surface-variant font-body-md">Nonsteroidal anti-inflammatory drug (NSAID).</p>
+<div class="grid grid-cols-2 gap-stack-md mt-2 pt-2 border-t border-outline-variant/20">
+<div>
+<span class="text-label-sm font-label-sm text-outline uppercase tracking-wider">Dosage</span>
+<p class="text-on-surface font-body-md font-medium">400 mg</p>
+</div>
+<div>
+<span class="text-label-sm font-label-sm text-outline uppercase tracking-wider">Duration</span>
+<p class="text-on-surface font-body-md font-medium">As needed</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Daily Schedule Table -->
+<section class="mb-stack-lg">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-stack-md flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">calendar_today</span>
+                Suggested Schedule
+            </h3>
+<div class="overflow-x-auto rounded-[20px] border border-primary-container/20">
+<table class="w-full text-left border-collapse bg-surface-container-low">
+<thead>
+<tr class="bg-primary-container/10">
+<th class="p-4 font-label-md text-primary border-b border-primary-container/20">Time</th>
+<th class="p-4 font-label-md text-primary border-b border-primary-container/20">Medicine</th>
+<th class="p-4 font-label-md text-primary border-b border-primary-container/20">Notes</th>
+</tr>
+</thead>
+<tbody class="text-on-surface font-body-md">
+<tr class="border-b border-primary-container/10">
+<td class="p-4 font-medium">8:00 AM</td>
+<td class="p-4">Amoxicillin, Lisinopril</td>
+<td class="p-4 text-on-surface-variant text-sm">After breakfast</td>
+</tr>
+<tr class="border-b border-primary-container/10">
+<td class="p-4 font-medium">4:00 PM</td>
+<td class="p-4">Amoxicillin</td>
+<td class="p-4 text-on-surface-variant text-sm">With water</td>
+</tr>
+<tr>
+<td class="p-4 font-medium">10:00 PM</td>
+<td class="p-4">Amoxicillin</td>
+<td class="p-4 text-on-surface-variant text-sm">Before bed</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- Start Over Action -->
+<div class="flex flex-col gap-stack-md mt-stack-lg">
+<button class="w-full py-4 bg-primary text-on-primary rounded-[16px] font-headline-md shadow-lg active:scale-95 transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">restart_alt</span>
+                Start Over
+            </button>
+<button class="w-full py-4 bg-surface-container text-on-surface rounded-[16px] font-label-md border border-outline-variant/30 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">share</span>
+                Share Results
+            </button>
+</div>
+</main>
+<!-- Footer Disclaimer -->
+<footer class="bg-error-container dark:bg-on-error-container text-on-error-container dark:text-error-container fixed bottom-0 left-0 w-full z-50 flex items-center justify-center py-stack-md px-container-padding text-center shadow-lg">
+<p class="font-label-md text-label-md">
+            This tool assists reading — always confirm with your pharmacist or doctor.
+        </p>
+</footer>
+<script>
+        // Micro-interaction for cards
+        document.querySelectorAll('.med-card').forEach(card => {
+            card.addEventListener('click', () => {
+                // Potential expansion logic or feedback
+                console.log('Medicine card clicked');
+            });
+        });
+    </script>
+
+
+</body></html>
