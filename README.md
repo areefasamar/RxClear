@@ -146,4 +146,4 @@ This project is deployed on **Vercel**. To deploy your own copy:
 
 ## A note on responsible design
 
-No login, signup, or personal information (name, phone number, etc.) is ever collected. Each user's history stays private through an invisible, anonymous session — protecting privacy without adding any friction to a tool meant to be used quickly, often by people who are worried about their health in the moment.
+No login, signup, or personal information (name, phone number, etc.) is ever collected. Each user's history stays private through an invisible, anonymous session protecting privacy without adding any friction to a tool meant to be used quickly, often by people who are worried about their health in the moment.
